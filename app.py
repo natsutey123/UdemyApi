@@ -15,7 +15,7 @@ from flask import make_response
 
 # Flask app should start in global layout
 app = Flask(__name__)
-@app.route('webhook/',method='POST')
+@app.route('/webhook',methods='POST')
 def webhook():
     req = request.get_json(silent=True, force=True)
 
@@ -84,7 +84,8 @@ def udemySearchCourses(data):
     print(speech)
 
     return {
-        "fulfillmentText": speech,
+        "speech": speech,
+        "displayText":speech,
         "source": "UdemyApi"
     }
 
